@@ -1,0 +1,12 @@
+<div>
+    <ul>
+        <li *ngFor="let newHero of tabHeroes">
+            
+            <a routerLink="/detail/{{newHero.id}}">
+                <span>{{newHero.id}} </span> {{newHero.name}}
+            </a>
+            
+        </li>
+    </ul>
+</div>
+
