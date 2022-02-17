@@ -10,7 +10,8 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class HeroService {
-  private heroesURL = 'api/heroes';
+  private heroesURL = 'http://localhost:9090';
+  
 
   constructor(private messageService: MessageService, private http: HttpClient) {
   }
@@ -18,9 +19,15 @@ export class HeroService {
     this.messageService.add(`HeroService: ${message}`);
   }
 
+  //
   getHeroes(): Observable<IHero[]> {
 
-    return this.http.get<IHero[]>(this.heroesURL).pipe(
+    let httpOptions = {
+      headers: new HttpHeaders({ 
+        'Access-Control-Allow-Origin':'*'
+      })
+    };
+    return this.http.get<IHero[]>(this.heroesURL + '/all', httpOptions).pipe(
       tap(_ => this.log('fetched heroes')),
       catchError(this.handleError<IHero[]>('getHeroes', []))
     );
@@ -42,4 +49,34 @@ export class HeroService {
      catchError(this.handleError<IHero>(`getHero id=${id}`))
    );
   }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  };
+
+  updateHero(hero: IHero): Observable<any>{
+
+    return this.http.put(this.heroesURL, hero, this.httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+
+  addHero(hero: IHero): Observable<IHero>{
+    return this.http.post<IHero>(this.heroesURL, hero, this.httpOptions)
+      .pipe(
+        tap( (newHero:IHero) => this.log(`Added hero with id=${newHero.id}`)),
+          catchError(this.handleError<IHero>('addHero'))
+      );
+  }
+
+  /** DELETE: delete the hero from the server */
+deleteHero(id: number): Observable<IHero> {
+  const url = `${this.heroesURL}/${id}`;
+
+  return this.http.delete<IHero>(url, this.httpOptions).pipe(
+    tap(_ => this.log(`deleted hero id=${id}`)),
+    catchError(this.handleError<IHero>('deleteHero'))
+  );
+}
 }
