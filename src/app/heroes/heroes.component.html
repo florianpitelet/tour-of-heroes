@@ -3,9 +3,9 @@
         <li *ngFor="let newHero of tabHeroes">
 
             <a routerLink="/hero/{{newHero.id}}">
-                <span>{{newHero.id}} </span> {{newHero.name}}
+                <span>{{newHero.id}} </span> {{newHero.nom}}
             </a>
-            <button type="button" class="delete-button" (click)="delete(newHero)">
+            <button type="button" class="delete-button" (click)="onDeleteHero(newHero.id)">
                 Delete hero
             </button>
 
@@ -17,7 +17,7 @@
     <label for="nex-hero">Hero name:</label>
     <input id="new-hero" #heroName />
 
-    <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    <button type="button" class="add-button" (click)="onAddHero(heroName.value); heroName.value=''">
         Add hero
     </button>
 

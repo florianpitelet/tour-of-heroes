@@ -1,7 +1,8 @@
 //l'interface IHero est une blueprint d'un heros
 
-export interface IHero {
+export interface Hero {
 
     id: number,
-    name: string;
+    nom: string;
+    pouvoir: string;
 }

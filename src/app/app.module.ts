@@ -10,7 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { AppComponent } from './app.component';
-import { InMemoryDataService } from './in-memory-data.service';
+// import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
