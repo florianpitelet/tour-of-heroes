@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
@@ -32,11 +33,10 @@ export class HeroesComponent implements OnInit {
   );
   }
 
-  public onAddHero(name:string):void{
-    name = name.trim();
-    if(!name){ return; }
+  public onAddHero(addForm: NgForm):void{
     
-    this.heroService.addHero( { name } as unknown as Hero)
+    document.getElementById('new-hero-add')?.click();
+    this.heroService.addHero(addForm.value)
       .subscribe((response: Hero) => {
         console.log(response);
         this.getHeroes();
