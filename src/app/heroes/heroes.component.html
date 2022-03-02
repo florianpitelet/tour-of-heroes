@@ -1,11 +1,11 @@
 <div>
     <ul>
-        <li *ngFor="let newHero of tabHeroes">
-
-            <a routerLink="/hero/{{newHero.id}}">
-                <span>{{newHero.id}} </span> {{newHero.nom}}
+        <li  *ngFor="let hero of tabHeroes">
+            
+            <a routerLink="/hero/{{hero.id}}">
+                <span class="badge">{{hero.id}}</span> {{hero.nom}}
             </a>
-            <button type="button" class="delete-button" (click)="onDeleteHero(newHero.id)">
+            <button type="button" class="delete-button" (click)="onDeleteHero(hero.id)">
                 Delete hero
             </button>
 
@@ -21,10 +21,8 @@
     <label for="new-hero-pouvoir">Hero power:</label>
     <input type="text" ngModel name="pouvoir" id="new-hero-pouvoir"/>
 
-    <button  [disabled]="addForm.invalid" type="submit" class="add-button" id="new-hero-add">
+    <button class="add-button" [disabled]="addForm.invalid" type="submit" class="add-button" id="new-hero-add">
         Add hero
     </button>
     </form>
-
-    
 </div>
