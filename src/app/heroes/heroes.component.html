@@ -16,13 +16,17 @@
 <div>
     <form #addForm="ngForm" (ngSubmit)="onAddHero(addForm)">
     <label for="new-hero-nom">Hero name:</label>
+
     <input type="text" ngModel name="nom" id="new-hero-nom" />
 
     <label for="new-hero-pouvoir">Hero power:</label>
+
     <input type="text" ngModel name="pouvoir" id="new-hero-pouvoir"/>
 
-    <button class="add-button" [disabled]="addForm.invalid" type="submit" class="add-button" id="new-hero-add">
+    <button class="add-button" [disabled]="addForm.invalid" type="submit" id="new-hero-add">
         Add hero
     </button>
     </form>
+
+    
 </div>

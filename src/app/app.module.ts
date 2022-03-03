@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { AppComponent } from './app.component';
+import { TeamsComponent } from './teams/teams.component';
 // import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AppComponent } from './app.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,

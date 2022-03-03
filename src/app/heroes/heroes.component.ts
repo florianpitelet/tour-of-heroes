@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
+import { Team } from '../Team';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-heroes',
@@ -15,7 +17,7 @@ export class HeroesComponent implements OnInit {
 
   tabHeroes: Hero[] = [];
  
-  constructor(private heroService:HeroService, private messageService:MessageService) { }
+  constructor(private heroService:HeroService, private teamService: TeamService, private messageService:MessageService) { }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -35,7 +37,7 @@ export class HeroesComponent implements OnInit {
 
   public onAddHero(addForm: NgForm):void{
     
-    document.getElementById('new-hero-add')?.click();
+    document.getElementById('#new-hero-add')?.click();
     this.heroService.addHero(addForm.value)
       .subscribe((response: Hero) => {
         console.log(response);
@@ -46,6 +48,8 @@ export class HeroesComponent implements OnInit {
     }
 );
   }
+
+  
 
   public onDeleteHero(heroId: number): void {
 
