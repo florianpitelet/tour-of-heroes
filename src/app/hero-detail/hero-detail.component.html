@@ -7,19 +7,13 @@
       <input id="hero-name" [(ngModel)]="hero.nom" placeholder="name">
     </div>
     Power:<h2> {{hero.pouvoir}}</h2>
-    <div>
-      <form #addToTeamForm="ngForm" (ngSubmit)="onAddToTeam(addToTeamForm)">
-        <label for="new-hero-team">Hero team:</label>
-
-        <input type="text" ngModel name="team" id="new-hero-team"/>
-
-        <button class="add-button" type="submit" id="new-hero-team">
-            add to team
-        </button>
-    </form>
+    
       <button type="button" (click)="save()">save</button>
-    </div>
+    
 
     <button type="button" (click)="goBack()">back</button>
   
 </div>
+
+<!--Faire une fiche sympa avec avatar, nom pouvoir team et eventuellement des stats plus tard-->
+
