@@ -11,8 +11,14 @@
       <tr *ngFor="let teamItem of tabTeams">
         <th scope="row">{{teamItem.id}}</th>
         <td>{{teamItem.nom}}</td>
-        <td>Liste des Membres</td>
-        
+        <td>Liste des Membres</td> 
       </tr>
     </tbody>
   </table>
+
+  <!--Bouton à centrer et lui donner la fonction onaddTeam()-->
+<div>
+  <button type="button" class="btn btn-success">
+      Ajouter une équipe
+  </button>
+</div>

@@ -14,6 +14,33 @@
 </div>
 
 <div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Pouvoir</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let hero of tabHeroes">
+            <th scope="row">{{hero.id}}</th>
+            <td>{{hero.nom}}</td>
+            <td>{{hero.pouvoir}}</td>
+            <td>Bouton edit et delete</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<!--Bouton à centrer et lui donner la fonction onaddhero()-->
+<div>
+    <button type="button" class="btn btn-success">
+        Ajouter un héros
+    </button>
+</div>
+
+<div>
     <form #addForm="ngForm" (ngSubmit)="onAddHero(addForm)">
     <label for="new-hero-nom">Hero name:</label>
 

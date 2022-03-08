@@ -4,3 +4,16 @@
         {{hero.nom}}
     </a>
 </div>
+
+<div class="container">
+    <div class="row" *ngFor="let hero of heroes">
+        <div class="col-md-12 col-xl-12">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h6 class="m-b-20">{{hero.nom}}</h6>
+                    <h2 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>Classement? systeme de stats?</span></h2>
+                    <p class="m-b-0">{{hero.pouvoir}}<span class="f-right">Team</span></p>
+                </div>
+            </div>
+        </div>
+</div>
