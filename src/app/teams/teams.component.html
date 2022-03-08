@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">Nom</th>
         <th scope="col">Membres</th>
         <th scope="col">Actions</th>
@@ -8,8 +9,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let teamItem of tabTeams">
-        <th scope="row">1</th>
+        <th scope="row">{{teamItem.id}}</th>
         <td>{{teamItem.nom}}</td>
+        <td>Liste des Membres</td>
         
       </tr>
     </tbody>
